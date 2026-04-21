@@ -61,7 +61,7 @@ for (const post of posts100) {
     // Icon from blogs.json
     let icon = iconMap[post.feed] || 'blank';
     // Markdown escape for title (minimal)
-    let escTitle = post.title.replace(/([*_`\[\]])/g, '\\$1');
+    let escTitle = post.title.replace(/([*_`\[\]])/g, '\\$1').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     // Output
     md += `![icon](${FAVICON_PATH}${icon}.png) <small>${dateStr} ${post.feed}</small>  \n`;
     md += `<small>[${escTitle}](${post.link})</small>\n\n`;
